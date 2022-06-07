@@ -1,0 +1,7 @@
+<ul *ngIf="listings$ | async as listings">
+    <div *ngFor="let item of listings">
+        {{item.title | json}}
+        {{item.price}}
+        {{item.details}}
+    </div>
+</ul>
