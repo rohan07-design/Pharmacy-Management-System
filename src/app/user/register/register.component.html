@@ -1,0 +1,33 @@
+<div id="container">
+    <div id="center">
+        <div id="images">
+            <img src="../../../assets/1588773798_sign-in-banner-new.png" alt="signin page">
+        </div>
+
+
+        <div class="form-wrap">
+            <h3>User Registration</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="userRegister()">
+                <div class="mb-3">
+                    <label for="exampleInputName" class="form-label">Enter Name</label>
+                    <input type="text" class="form-control" id="exampleInputName" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        formControlName="email">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

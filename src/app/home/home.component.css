@@ -1,0 +1,153 @@
+.carousel-item img {
+    height: 45vh;
+}
+
+#trending {
+    margin: 3% 4%;
+}
+
+#trending h3 {
+    margin-bottom: 3%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card {
+    border: none;
+}
+
+#trending img {
+    height: 15rem;
+    width: 20rem;
+}
+
+/* navbar */
+.nav {
+    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    margin: 2% 3%;
+    padding: 3% 5%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav h2 {
+    color: #ffff;
+}
+
+/* cards for product*/
+
+.card a {
+    font-size: 19px;
+}
+
+#desc strong {
+    color: #ffff;
+    font-size: 23px;
+}
+
+#head {
+    display: flex;
+    justify-content: space-between;
+}
+
+#deals {
+    background-color: #ecf5f7;
+    padding: 5% 5%;
+    /* margin: 5% 5%; */
+    /* border-radius: 5px; */
+}
+
+
+
+#deals img {
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+}
+
+#deals .card {
+    /* border: 0.5px solid grey; */
+    padding: 2% 2%;
+}
+
+#deals .card:hover {
+    border: 1.5px solid #097969;
+}
+
+#dealsRow {
+    margin-top: 5%;
+}
+
+#dealsRow .card {
+    align-items: center;
+}
+
+/*middle nav*/
+#middleNav {
+    display: flex;
+    justify-content: space-around;
+    padding: 3% 4%;
+    /* background-color: #e9f7fa; */
+}
+
+
+#middleNav img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.headName {
+    font-size: 50px;
+    font-weight: 500;
+    color: #097969;
+}
+
+.bottomName {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* footer */
+hr {
+    position: relative;
+    bottom: 17px;
+    color: gray;
+}
+
+footer {
+    padding: 3% 5%;
+    background-color: #ecf5f7;
+    text-align: center;
+    bottom: 33px;
+}
+
+
+
+@media(max-width:998px) {
+    #thirdCard {
+        align-items: center;
+        margin-top: 10%;
+    }
+    
+    .nav { 
+        align-items: center;
+    }
+
+    #dealsRow .card {
+        align-items: center;
+        margin-top: 10%;    
+    }
+    
+    .card {
+        align-items: center;
+    }
+
+    #trending img {
+        margin-top: 10%;
+    }
+}

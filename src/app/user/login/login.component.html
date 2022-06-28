@@ -1,0 +1,29 @@
+<div id="container">
+    <div id="center">
+        <div id="images">
+            <img src="../../../assets/1588773798_sign-in-banner-new.png" alt="signin page">
+        </div>
+
+        <div class="form-wrap" id="page">
+            <h3>LogIn</h3>
+            <p>Log in to access your orders, special offers, health tips and more!</p>
+
+            <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        formControlName="email">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">LogIn <i class="fas fa-sign-in-alt"></i></button>
+                <hr>
+                <h4 style="text-align:center;">OR</h4>
+                <button style="width:100%;" class="btn btn-outline-success" routerLink="../register">Create Account <i class="fas fa-user"></i></button>
+            </form>
+        </div>
+    </div>
+</div>

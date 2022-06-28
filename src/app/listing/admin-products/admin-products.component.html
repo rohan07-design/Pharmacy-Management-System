@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="deals">
+        <h3 class="me-auto">Deals of the day</h3><br>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Add medicines <i
+                class="fas fa-plus-square fs "></i></button>
+        <div class="row" id="dealsRow" *ngIf="listings$ | async as listings">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let item of listings">
+                <div class="card" style="width:20rem;">
+                    <img src="{{item.image}}" class="card-img-top" alt="..." style="width:238px; height:238px;">
+                    <div class="card-body">
+                        {{item._id}}
+                        <p class="card-text"><strong>{{item.title}}</strong>
+                            <br><br>{{item.details}}<br><br>
+                            MRP<br>
+                            <strong>
+                                ₹{{item.price}}
+                            </strong>
+
+                        </p>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <button class="btn btn-success form-control  btn-block" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Update <i class="far fa-edit"></i></button>
+                            </div>
+                            <div class="col">
+                                <button id="btnSubmit" class="btn btn-danger form-control btn-block"
+                                    type="submit">Delete <i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Medicines</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="editListingForm" (ngSubmit)="editListing()">
+                        <div class="mb-3">
+                            <label for="exampleInputImage" class="form-label">Image Link</label>
+                            <input type="text" class="form-control" id="exampleInputImage" aria-describedby="emailHelp"
+                                formControlName="image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control"  id="exampleInputTitle" aria-describedby="emailHelp"
+                                formControlName="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputImage" class="form-label">Price</label>
+                            <input type="text" class="form-control"  id="exampleInputPrice" formControlName="price">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputImage" class="form-label">Details</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1"  srows="3" formControlName="details"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-4" [disabled]="!editListingForm.valid">Update <i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close <i class="fas fa-times-circle"></i></button>
+                    </form>
+                </div>
+                </div>
+            </div> 
+        </div>
+    <!-- </div> -->
+
+    <!--for adding medicines-->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Products</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="listingForm" (ngSubmit)="newListing()">
+                        <div class="mb-3">
+                            <label for="exampleInputImage" class="form-label">Image Link</label>
+                            <input type="text" class="form-control" id="exampleInputImage" aria-describedby="emailHelp"
+                                formControlName="image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp"
+                                formControlName="title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputImage" class="form-label">Price</label>
+                            <input type="text" class="form-control" id="exampleInputPrice" aria-describedby="emailHelp"
+                                formControlName="price">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputImage" class="form-label">Details</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                formControlName="details"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-4" [disabled]="!listingForm.valid">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

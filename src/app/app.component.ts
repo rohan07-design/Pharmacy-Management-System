@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  searchText = "";
+
+  onSearchEntered(text:any) {
+    this.searchText = text;
+    console.log(this.searchText)
+  }
 }

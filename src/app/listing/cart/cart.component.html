@@ -1,0 +1,91 @@
+<ng-container *ngIf="true">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product Title</th>
+                <th scope="col">Product Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of getCartDetails, let i=index">
+                <td>{{item._id}}</td>
+                <td>{{item.title}}</td>
+                <td class="detail">{{item.details}}</td>
+                <td>{{item.price}}</td>
+                <td>1</td>
+                <td>
+                    <button class="btn btn-success me-3" (click)="makePayment(item.price)"><i class="fas fa-dollar-sign"></i></button>
+                    <button class="btn btn-danger" (onclick)="removeProduct(item.id)"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="success">
+        <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="card-table">
+        <div class="card-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Title</th>
+                        <th>Product Description</th>
+                        <th>Price</th>
+                        <th>Qunatity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of products, let i=index">
+                        <td>{{item._id}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.details}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.total}}</td>
+                        <td>
+                            <button class="btn btn-success me-3">Shop Now</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> -->
+</ng-container>
+
+<ng-container *ngIf="false">
+    <div class="container">
+        <div class="card">
+            <h4 class="card-title"> My Cart </h4>
+        </div>
+        <div class="center">
+            <h5>Your cart is empty!</h5>
+            <h6>Add item now</h6>
+            <button class="btn btn-sucess">Shop Now</button>
+        </div>
+    </div>
+</ng-container>

@@ -1,7 +1,57 @@
-<ul *ngIf="listings$ | async as listings">
+<!-- <ul *ngIf="listings$ | async as listings">
     <div *ngFor="let item of listings">
         {{item.title | json}}
         {{item.price}}
         {{item.details}}
     </div>
-</ul>
+</ul> -->
+
+<!--Deals-->
+<div id="deals">
+    <!-- <div id="head">-->
+    <h3 class="me-auto">Deals of the day</h3>
+    <!--<button class="btn btn-success" routerLink="/products">View More</button>
+    </div> -->
+    <div class="row" id="dealsRow" *ngIf="listings$ | async as listings">
+        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let item of listings">
+            <div class="card" style="width:20rem;">
+                    <img src="{{item.image}}" class="card-img-top" alt="..." style="width:238px; height:238px;">
+                <div class="card-body">
+                    {{item._id}}
+                    <p class="card-text"><strong>{{item.title}}</strong>
+                        <br><br>{{item.details}}<br><br>
+                        MRP<br>
+                        <strong>
+                            ₹{{item.price}}
+                        </strong>
+
+                    </p>
+                    <!-- <div class="buttons">
+                        <div class="cartbtn" >
+                            <button class="btn btn-sm btn-success me-2">+</button>
+                            <span *ngFor = "let qty of productList">{{qty.quantity}}</span>
+                            <button class="btn btn-sm btn-danger mx-2">-</button>
+
+                        </div>
+                    </div> -->
+                </div>
+                <div class="count mb-4">
+                    <button class="btn btn-sm btn-success me-2" (click)="incre(item)">+</button>
+                    <span>{{count}}</span>
+                    <button class="btn btn-sm btn-danger mx-2" (click)="decre(item)">-</button>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-success form-control  btn-block" (click)="addToCart(item)">Add cart <i class="fas fa-cart-plus"></i></button>
+                        </div>
+                        <div class="col">
+                            <button id="btnSubmit" class="btn btn-primary form-control btn-block" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" type="submit" routerLink="{{item._id}}">Order <i class="fas fa-dollar-sign"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

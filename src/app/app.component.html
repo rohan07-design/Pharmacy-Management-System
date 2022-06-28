@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<app-header (onSearchTextChanged) = "onSearchEntered($event)"></app-header>
+<main>
+    <router-outlet></router-outlet>
+</main>

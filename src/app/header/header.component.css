@@ -1,0 +1,18 @@
+#navbar {
+    font-size: 18px;
+    padding: 1% 5%;
+    background-color: #097969;
+}
+
+#navbar a,
+button {
+    color: #ffff;
+}
+
+form li {
+    display: block;
+}
+
+
+
+

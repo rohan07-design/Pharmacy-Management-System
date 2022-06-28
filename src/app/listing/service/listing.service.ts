@@ -14,4 +14,16 @@ export class ListingService {
   getListings():Observable<Listing[]> {
     return this.http.get<Listing[]>(this.ROOT_URL);
   }
+
+  getListing(id:string):Observable<Listing[]> {
+    return this.http.get<Listing[]>(`${this.ROOT_URL}/${id}`);
+  }
+
+  addListing(listing:any) {
+    return this.http.post<any>(this.ROOT_URL,listing);
+  }
+
+  editListings(listing:any,id:string) {
+    return this.http.put<any>(`${this.ROOT_URL}/${id}`,listing);
+  }
 }

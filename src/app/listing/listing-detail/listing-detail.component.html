@@ -1,0 +1,22 @@
+<!-- <app-header></app-header> -->
+<div *ngIf="success" class="success">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" >
+        Thank You..!!! Payment Successfull...
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+</div>
+<div id="list">
+    <div class="top">
+        <img src="{{listing.image}}" alt="image">
+    </div>
+    <div class="details">
+        <h3>{{listing.title}}</h3>
+        <br>
+        <h4>Price : ₹{{listing.price}}</h4>
+        <p>Inclusive of all taxes</p><br>
+        <h5>Details : {{listing.details}}</h5>
+        <p>Delivery by <strong>Tomorrow, before 4:00 pm</strong></p>
+        <button class="btn btn-primary me-4" (click)="makePayment(listing.price)">₹ Pay Now</button>
+        <button class="btn btn-danger" routerLink="/home">Cancle</button>
+    </div>
+</div>

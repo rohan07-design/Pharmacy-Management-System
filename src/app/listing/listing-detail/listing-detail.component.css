@@ -1,0 +1,22 @@
+#list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 10% 10%;
+    margin: 5% 7%;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.top {
+    width: 100px;
+}
+
+.success {
+    margin: 2% 4%;
+}
+
+img {
+    width: 250%;
+    height: 100%;
+}

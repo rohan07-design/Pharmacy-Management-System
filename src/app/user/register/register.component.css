@@ -1,0 +1,33 @@
+#container {
+    background-color: rgb(246, 251, 255);
+}
+
+#center {
+    border: 1px solid #0000;
+    background-color: #ffff;
+    display: flex;
+    justify-content: space-around;
+    padding: 5% 10%;
+}
+
+#images img {
+    border-radius: 10px;
+    /* height: 70%; */
+}
+
+@media (max-width:880px) {
+
+    #container {
+        align-items: center;
+    }
+
+    #images img {
+        width: 100%;
+    }
+
+    #center {
+        display:inline-block;
+        align-items: center;
+    }
+
+}
