@@ -1,7 +1,7 @@
 export interface Listing {
-    _id:String,
-    image:String,
-    title:String,
-    price:String,
-    details:String
+    _id:string,
+    image:string,
+    title:string,
+    price:string,
+    details:string
 }

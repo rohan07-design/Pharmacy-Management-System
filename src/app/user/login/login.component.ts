@@ -22,13 +22,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userLogin() {
+  userLogin(getEmail:any,getPassword:any) {
     if(this.loginForm.valid) {
       this.userService.login(this.loginForm.value).subscribe(res => {
         console.log(res);
         localStorage.setItem("token",res.token);
         //keep in mind to change listing to home
-        this.router.navigate(["/home"])
+        if(getEmail == "admin@gmail.com" && getPassword == "admin123") {
+          this.router.navigate(["/cart"])
+        } else {
+          this.router.navigate(["/home"])
+        }
         
       }, 
       err => {

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -13,8 +14,8 @@ import { ListingService } from '../service/listing.service';
 export class ListingDetailComponent implements OnInit {
 
   //fetching single item
-  id:any;
-  listing:any;
+  id:string;
+  listing:Listing;
   listingsub$:Subscription; 
 
   //payment
@@ -29,7 +30,7 @@ export class ListingDetailComponent implements OnInit {
 
   ngOnInit(): void {
     //fetching single id
-    this.id = this.route.snapshot.paramMap.get("id");
+    this.id =  this.route.snapshot.paramMap.get("id")!;
     this.listingsub$ = this.listingService.getListing(this.id).subscribe(listing => {
       this.listing = listing;
     })
@@ -38,7 +39,7 @@ export class ListingDetailComponent implements OnInit {
     this.invokeStripe()
   }
 
-  makePayment(amount: number) {
+  makePayment(amount: any) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_51LE33ASIT3dowHOXp9V2NtwQzuhbhHXmnS7HvmQomaJGqc9oBTpnaDQkQSAlm5MKVzgAwm9rYSsD2Qo5jvg2f24g00RuDVrPbC',
       locale: 'auto',

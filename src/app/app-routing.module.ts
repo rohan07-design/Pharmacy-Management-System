@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AdminProductsComponent } from './listing/admin-products/admin-products.component';
 import { CartComponent } from './listing/cart/cart.component';
+import { ManageListingComponent } from './listing/manage-listing/manage-listing.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:"adminProducts",
     component:AdminProductsComponent
+  },
+  {
+    path:"adminProducts/:id",
+    component:ManageListingComponent
   }
 ];
 

@@ -60,6 +60,23 @@ export class CartComponent implements OnInit {
       console.log(this.getCartDetails);
     }
   }
+  removeall() {
+    localStorage.removeItem('localcart');
+    this.getCartDetails = [];
+  }
+
+  singledelete(getSingleItem:any) {
+    if(localStorage.getItem('localcart')) {
+      this.getCartDetails = JSON.parse(localStorage.getItem('localcart')!);
+      for(let i=0;i<this.getCartDetails.length;i++) {
+        if(this.getCartDetails[i].id === getSingleItem) {
+          this.getCartDetails.splice(i,1);
+          localStorage.setItem('localcart',JSON.stringify(this.getCartDetails));
+        }
+      }
+    }
+  }
+  
 
   //payment gateway
   // buttoncolor = "black";

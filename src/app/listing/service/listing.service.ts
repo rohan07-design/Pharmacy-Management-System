@@ -15,8 +15,8 @@ export class ListingService {
     return this.http.get<Listing[]>(this.ROOT_URL);
   }
 
-  getListing(id:string):Observable<Listing[]> {
-    return this.http.get<Listing[]>(`${this.ROOT_URL}/${id}`);
+  getListing(id:string){
+    return this.http.get<Listing>(`${this.ROOT_URL}/${id}`);
   }
 
   addListing(listing:any) {
@@ -25,5 +25,9 @@ export class ListingService {
 
   editListings(listing:any,id:string) {
     return this.http.put<any>(`${this.ROOT_URL}/${id}`,listing);
+  }
+
+  deletListing(id:string) {
+    return this.http.delete(`${this.ROOT_URL}/${id}`);
   }
 }

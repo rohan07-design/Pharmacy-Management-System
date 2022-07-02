@@ -19,11 +19,12 @@
                 <td>1</td>
                 <td>
                     <button class="btn btn-success me-3" (click)="makePayment(item.price)"><i class="fas fa-dollar-sign"></i></button>
-                    <button class="btn btn-danger" (onclick)="removeProduct(item.id)"><i class="fas fa-trash"></i></button>
+                    <button class="btn btn-danger" (click)="singledelete(item.id)"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <button class="btn btn-danger" id="removeall" (click)="removeall()">Remove all <i class="fas fa-trash"></i></button>
     <div *ngIf="success">
         <div class="modal" tabindex="-1">
             <div class="modal-dialog">

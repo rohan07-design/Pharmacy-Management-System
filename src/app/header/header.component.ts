@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   checkLogIn :any;
   checkLogout :any;
   enteredvalue:any = "";
+  show = false;
   constructor(private _userService:UserService) { }
 
   ngOnInit(): void {
@@ -19,11 +20,10 @@ export class HeaderComponent implements OnInit {
     this.checkLogout = this._userService.logout()
   }
 
-  //implementing search functionility
-  @Output()
-  searchTextChanged:EventEmitter<string> = new EventEmitter<string>();
+ 
 
-  onSearchTextChanged() {
-    this.searchTextChanged.emit(this.enteredvalue);
+  //showing and hiding admin
+  showAdmin() {
+    this.show = true;
   }
 }

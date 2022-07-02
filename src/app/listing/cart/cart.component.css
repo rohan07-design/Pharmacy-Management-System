@@ -12,6 +12,10 @@ button {
     width: 20%;
 }
 
+#removeall {
+    float: right;
+}
+
 .center {
     top: 50%;
     left:50%;

@@ -4,6 +4,7 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { AllListingComponent } from './all-listing/all-listing.component';
 import { CartComponent } from './cart/cart.component';
 import { ListingDetailComponent } from './listing-detail/listing-detail.component';
+import { ManageListingComponent } from './manage-listing/manage-listing.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:"adminProducts",
     component:AdminProductsComponent
+  },
+  {
+    path:"adminProducts/:id",
+    component:ManageListingComponent
   }
 ];
 

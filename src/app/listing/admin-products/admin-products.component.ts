@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { Observable, Subscription } from 'rxjs';
 import { Listing } from '../model/listing';
 import { ListingService } from '../service/listing.service';
@@ -13,9 +15,9 @@ import { ListingService } from '../service/listing.service';
 export class AdminProductsComponent implements OnInit {
   productList:any;
   listings$: Observable<Listing[]>;
-  listing:any;
+  listing:Listing;
   listingsub$:Subscription;
-  id:any = ""
+  id:any;
 
   //for adding the medicines
   listingForm = new FormGroup({
@@ -30,7 +32,7 @@ export class AdminProductsComponent implements OnInit {
     image:new FormControl("",[Validators.required]),
     title:new FormControl("",[Validators.required]),
     price:new FormControl("",[Validators.required]),
-    details:new FormControl("",[Validators.required])
+    details:new FormControl("",[Validators.required]),
   })
 
   constructor(private listingService:ListingService,
@@ -39,9 +41,9 @@ export class AdminProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get("id");
-    // this.listings$ = this.listingService.getListings();
+    this.listings$ = this.listingService.getListings();
     this.listingsub$ = this.listingService.getListing(this.id).subscribe(listing => {
-      this.listing = listing;
+      this.listing  = listing;
     });
     this.listingService.getListings().subscribe(res => {
       this.productList = res;
@@ -60,7 +62,7 @@ export class AdminProductsComponent implements OnInit {
 
   //for updating the medicines
   editListing() {
-    this.id = this.route.snapshot.paramMap.get("id");
+    this.id =  this.route.snapshot.paramMap.get("id");
     console.log(this.id)
     if(this.editListingForm.valid) {
       this.listingService.editListings(this.editListingForm.value,this.id).subscribe(res => {
@@ -68,5 +70,14 @@ export class AdminProductsComponent implements OnInit {
         this.router.navigate(["/adminProducts"]);
       })
     }
+  }
+
+  deleteListing() {
+    this.id = this.route.snapshot.paramMap.get("id");
+    console.log(this.id)
+    this.listingService.deletListing(this.id).subscribe(res => {
+      console.log(res);
+      alert("The data has been remove");
+    })
   }
 }
